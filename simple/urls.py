@@ -16,11 +16,13 @@ Including another URLconf
 import debug_toolbar
 from django.contrib import admin
 from django.urls import path, include
-from core.views import IndexView
+from core.views import IndexView, NewIndex, TrackCreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view()),
+    path('new/', NewIndex.as_view()),
+    path('create-track/', TrackCreateView.as_view()),
     # path('author/create', CreateAuthorView.as_view()),
     # path('author/update/<int:pk>/', UpdateAuthorView.as_view())
     path('__debug__/', include(debug_toolbar.urls)),

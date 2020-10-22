@@ -19,8 +19,16 @@ class Genre(models.Model):
 class Track(models.Model):
     name = models.CharField(max_length=255)
     duration = models.DurationField()
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='tracks')
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
+    tags = models.ManyToManyField("core.Tag", blank=True)
 
     def __str__(self):
         return self.name
+
+class Tag(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+

@@ -22,21 +22,51 @@
                 <tr>
                     <th>id</th>
                     <th>name</th>
-                    <th>author</th>
-                    <th>genre</th>
+<!--                    <th>author</th>-->
+<!--                    <th>genre</th>-->
                     <th>duration</th>
+<!--                    <th>tags</th>-->
                 </tr>
-                {% for track in tracks%}
+                {% for track in tracks %}
                     <tr>
                        <td>{{track.id}}</td>
 <!--                       <td>{{forloop.counter}}</td>-->
                        <td>{{track.name}}</td>
-                       <td>{{track.author}}</td>
-                       <td>{{track.genre}}</td>
+<!--                       <td>{{track.author}}</td>-->
+<!--                       <td>{{track.genre}}</td>-->
                        <td>{{track.duration}}</td>
+<!--                       <td>-->
+<!--                           {% for tag in track.tags.all %}-->
+<!--                               #{{ tag }}-->
+<!--                               {% if not forloop.last %}-->
+<!--                                   ,-->
+<!--                               {% endif %}-->
+<!--                           {% endfor %}-->
+<!--                       </td>-->
                     </tr>
                 {% endfor %}
             </table>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <table class="table">
+                        <tr>
+                            <th>Artist name</th>
+                            <th>Track count</th>
+                            <th>All Duration</th>
+                        </tr>
+                        {% for artist in artists %}
+                            <tr>
+                                <td>{{artist.name}}</td>
+                                {# <td>{{artist.tracks.all.count}}</td> #}
+                                <td>{{artist.track_count}}</td>
+                                <td>{{artist.all_duration}}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
         </div>
     </body>
 </html>
